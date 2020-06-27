@@ -979,7 +979,7 @@ public class Http11Processor extends AbstractProcessor {
                 }
             }
         }
-
+        /*
         // Add server header
         String server = protocol.getServer();
         if (server == null) {
@@ -989,8 +989,9 @@ public class Http11Processor extends AbstractProcessor {
         } else {
             // server always overrides anything the app might set
             headers.setValue("Server").setString(server);
-        }
-
+        }*/
+        headers.removeHeader("server");
+        headers.removeHeader("allow");
         // Build the response header
         try {
             outputBuffer.sendStatus();
